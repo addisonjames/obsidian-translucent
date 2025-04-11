@@ -1,0 +1,211 @@
+/* Obsidian translucent theme */
+/* Source: https://github.com/addisonjames/obsidian-translucent */
+/* Version: v1.0 */
+
+body {
+    --background-primary: #000 !important;
+    --titlebar-background: transparent !important;
+    --titlebar-background-focused: var(--titlebar-background);
+    --text-normal: #F9F9F9 !important;
+    --workspace-background-translucent: rgba(var(--mono-rgb-0), 0.0001);
+}
+
+.workspace-tab-header.is-active {
+    color: #fff !important;
+}
+
+.workspace-leaf,
+.workspace-tab-header-container {
+    background: transparent;
+}
+
+/* fix for Graph view tab */
+.workspace-tab-header-container-inner,
+.workspace-tab-header-container {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+    backdrop-filter: blur(6px);
+}
+
+.workspace-tab-header.tappable.is-active {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+    backdrop-filter: blur(6px);
+    color: white !important;
+    border-radius: 0 !important;
+}
+
+.workspace-tab-header.tappable.is-active::before,
+.workspace-tab-header.tappable.is-active::after {
+    display: none !important;
+}
+
+.workspace-split.mod-root,
+.workspace-split.mod-root .view-content,
+.workspace-split.mod-root .view-header {
+    background: transparent;
+}
+
+.view-header-title-container:not(.mod-at-end):after {
+    background: transparent;
+}
+
+.custom-frames-frame {
+    background: transparent !important;
+}
+
+.is-focused .workspace-leaf.mod-active .view-header {
+    background: transparent;
+}
+
+.canvas-wrapper {
+    background-color: rgba(0, 0, 0, 0.02) !important;
+    backdrop-filter: blur(6px);
+}
+
+/* Light mode overrides */
+@media (prefers-color-scheme: light) {
+    body {
+        --text-normal: #090909 !important;
+        --background-primary: rgba(215, 215, 215, 1) !important;
+        }
+
+    /* Canvas */
+    .canvas-wrapper {
+        background-color: rgba(0, 0, 0, 0.02) !important;
+    }
+
+    /* Tab text color */
+    .workspace-tab-header.is-active {
+        color: #000 !important;
+    }
+
+    /* Active tab highlight */
+    .workspace-tab-header.tappable.is-active.mod-active {
+        background-color: rgba(0, 0, 0, 0.03) !important; /* More translucent */
+        backdrop-filter: blur(6px);
+        color: black !important;
+    }
+
+    .modal-container .vertical-tab-content {
+        --background-primary: #fff !important;
+        background-color: #fff !important;
+    }
+
+    .markdown-source-view hr, .markdown-preview-view hr {
+        border-color: rgba(0, 0, 0, 0.3) !important;
+        border-style: solid !important;
+        border-width: 1px !important;
+    }
+
+    /* Graph tools */
+    .graph-controls.is-close {
+        background-color: rgba(0, 0, 0, 0.03) !important;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    /* Graph tab fix */
+    .workspace-tab-header.tappable.is-active {
+        background-color: rgba(0, 0, 0, 0.02) !important;
+        color: black !important;
+    }
+
+    .workspace-tab-header-container-inner,
+    .workspace-tab-header-container {
+        background-color: rgba(0, 0, 0, 0.02) !important;
+    }
+
+    /* Status bar */
+    .status-bar {
+        background-color: rgba(0, 0, 0, 0.04) !important;
+        backdrop-filter: blur(6px);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.1); /* Light mode override */
+        border-radius: 6px;
+        backdrop-filter: blur(4px);
+    }
+
+    /* Canvas toolbar controls */
+    .canvas-control-item {
+        background-color: rgba(0, 0, 0, 0.03) !important;
+        backdrop-filter: blur(4px) !important;
+        border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    }
+}
+
+/* Dark mode overrides */
+@media (prefers-color-scheme: dark) {
+    .markdown-source-view hr, .markdown-preview-view hr {
+        border-color: rgba(255, 255, 255, 0.3) !important;
+        border-style: solid !important;
+        border-width: 1px !important;
+    }
+
+    /* Canvas */
+    .canvas-wrapper {
+        background-color: rgba(255, 255, 255, 0.02) !important;
+    }
+
+    /* Active tab highlight */
+    .workspace-tab-header.tappable.is-active.mod-active {
+        background-color: rgba(255, 255, 255, 0.03) !important; /* More translucent */
+        backdrop-filter: blur(6px); /* Optional: adds a frosted-glass effect */
+        color: white !important;
+    }
+
+    .workspace-tab-header.tappable.is-active.mod-active::before,
+    .workspace-tab-header.tappable.is-active.mod-active::after {
+        display: none !important;
+    }
+
+    /* Graph tools */
+    .graph-controls.is-close {
+        background-color: rgba(255, 255, 255, 0.03) !important;
+        backdrop-filter: blur(6px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .markdown-source-view, .markdown-preview-view {
+        --text-muted: rgba(255, 255, 255, 0.4) !important; /* Lighten up text-muted elements, such as checkboxes and bullet lists */
+        --text-faint: rgba(255, 255, 255, 0.2) !important; /* Lighten up text-faint elements, such as list numbers */
+    }
+
+    /* Graph tab */
+    .workspace-tab-header.tappable.is-active {
+        background-color: rgba(255, 255, 255, 0.02) !important;
+        color: white !important;
+    }
+
+    .workspace-tab-header-container-inner,
+    .workspace-tab-header-container {
+        background-color: rgba(255, 255, 255, 0.02) !important;
+    }
+
+    /* Status bar */
+    .status-bar {
+      background-color: rgba(255, 255, 255, 0.04) !important;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 6px;
+        backdrop-filter: blur(4px);
+    }
+}
